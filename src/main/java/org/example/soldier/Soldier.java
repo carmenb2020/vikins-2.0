@@ -10,13 +10,11 @@ public class Soldier {
     }
 
     public int attack() {
-        int strength1 = this.strength;
-        return (strength1);
+      return (this.strength);
     }
 
     public int receiveDamage(int damage) {
         this.health = this.health - damage;
-        int health1 = this.health;
-        return(health1);
+        return(this.health);
     }
 }
