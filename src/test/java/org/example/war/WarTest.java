@@ -4,7 +4,6 @@ import org.example.saxon.Saxon;
 import org.example.vikins.Vikings;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -38,17 +37,21 @@ class WarTest {
 
     @Test
     public void add_viking_should_receive_1_argument(){
-        Class classobj = War.class;
-        Method[] methods = classobj.getMethods();
-        int noOfParameters = methods[0].getParameterCount();
-        assertEquals(noOfParameters,1);
+        Class<War> war = War.class;
+        int numberArgs;
+        try {
+            numberArgs = war.getMethod("addViking", Vikings.class).getParameterCount();
+        }
+        catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);}
+        assertEquals(1, numberArgs);
     }
 
     @Test
     public void add_viking_should_add_the_received_Viking_to_the_army() {
-        int vikingArmyExp = war.getVikingArmy().size() + 1;
+        int vikingArmyPlus = war.getVikingArmy().size() + 1;
         war.addViking(viking);
-        assertEquals(vikingArmyExp, war.getVikingArmy().size());
+        assertEquals(vikingArmyPlus, war.getVikingArmy().size());
     }
 
     @Test
@@ -74,6 +77,7 @@ class WarTest {
         war.addViking(viking);
         saxon.setHealth(150);
         war.vikingAttack();
+
         assertTrue(war.getSaxonArmy().isEmpty());
     }
 

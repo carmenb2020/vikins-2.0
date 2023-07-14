@@ -1,13 +1,15 @@
 package org.example.war;
+
 import org.example.saxon.Saxon;
 import org.example.vikins.Vikings;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
 public class War {
 
-    static List VikingArmy = new ArrayList<>();
+    List VikingArmy = new ArrayList<>();
     List SaxonArmy = new ArrayList<>();
     public List<Vikings> getVikingArmy() {
       return(VikingArmy);
@@ -16,18 +18,20 @@ public class War {
         return(SaxonArmy);
     }
 
-    public static void addViking(Vikings viking) { VikingArmy.add(viking);}
+    public void addViking(Vikings viking) { VikingArmy.add(viking);}
 
     public void addSaxon(Saxon saxon) {
         SaxonArmy.add(saxon);
     }
 
     public String vikingAttack(){
-        int vikingRandom = (int)(Math.random()*VikingArmy.size());
+        SecureRandom rand = new SecureRandom();
+        int VikingArmyL = VikingArmy.size();
+        int vikingRandom = rand.nextInt(VikingArmyL);
         int saxonRandom = (int)(Math.random()*SaxonArmy.size());
         Saxon saxonSoldier = (Saxon) SaxonArmy.get(saxonRandom);
         Vikings vikingSoldier = (Vikings) VikingArmy.get(vikingRandom);
-        int result = saxonSoldier.receiveDamage(vikingSoldier.getStrength());
+        saxonSoldier.receiveDamage(vikingSoldier.getStrength());
         if (saxonSoldier.health <= 0){
             SaxonArmy.remove(saxonRandom);
             return ("A Saxon has died in combat");
