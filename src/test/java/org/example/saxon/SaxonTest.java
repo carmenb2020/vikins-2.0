@@ -25,20 +25,20 @@ class SaxonTest {
     @Test
     public void should_receive_the_health_property_as_its_1st_argument() {
         Saxon saxon = new Saxon(health, strength);
-        assertEquals(60, saxon.health);
+        assertEquals(60, saxon.getHealth());
     }
 
     @Test
     public void should_receive_the_health_property_as_its_2st_argument() {
         Saxon saxon = new Saxon(health, strength);
-        assertEquals(25, saxon.strength);
+        assertEquals(25, saxon.getStrength());
     }
 
     @Test
     public void attack_should_return_strength_property_of_the_Saxon() {
         Saxon saxon = new Saxon(health, strength);
         var resultAttack = saxon.attack();
-        assertEquals(saxon.strength, resultAttack);
+        assertEquals(saxon.getStrength(), resultAttack);
     }
 
     @Test
@@ -52,14 +52,14 @@ class SaxonTest {
     public void damage_should_receive_1_arguments() {
         Saxon saxon = new Saxon(health, strength);
         saxon.receiveDamage(50);
-        assertEquals(10, saxon.health);
+        assertEquals(10, saxon.getHealth());
     }
 
    @Test
     public void should_remove_the_received_damage_from_the_health_property() {
         Saxon saxon = new Saxon(health, strength);
         saxon.receiveDamage(50);
-        assertEquals(10, saxon.health);
+        assertEquals(10, saxon.getHealth());
     }
 
     @Test

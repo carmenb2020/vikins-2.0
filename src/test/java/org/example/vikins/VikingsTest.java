@@ -24,23 +24,23 @@ class VikingTest {
 
     @Test
     public void should_receive_the_health_property_as_its_1st_argument() {
-        assertEquals("Harald", viking.name);
+        assertEquals("Harald", viking.getName());
     }
 
     @Test
     public void should_receive_the_health_property_as_its_2st_argument() {
-        assertEquals(300, viking.health);
+        assertEquals(300, viking.getHealth());
     }
 
     @Test
     public void should_receive_the_health_property_as_its_3st_argument() {
-        assertEquals(150, viking.strength);
+        assertEquals(150, viking.getStrength());
     }
 
     @Test
     public void attack_should_return_strength_property_of_the_Saxon() {
         int resultAttack = viking.attack();
-        assertEquals(viking.strength, resultAttack);
+        assertEquals(viking.getStrength(), resultAttack);
     }
 
     @Test
@@ -52,25 +52,25 @@ class VikingTest {
     @Test
     public void damage_should_receive_1_arguments() {
         viking.receiveDamage(50);
-        assertEquals(250, viking.health);
+        assertEquals(250, viking.getHealth());
     }
 
     @Test
     public void should_remove_the_received_damage_from_the_health_property() {
         viking.receiveDamage(50);
-        assertEquals(250, viking.health);
+        assertEquals(250, viking.getHealth());
     }
 
     @Test
     public void should_return_NAME_has_received_DAMAGE_points_of_damage_if_the_Viking_is_still_alive() {
         viking.receiveDamage(50);
-        assertEquals(viking.name + "has received" + 50 + "points of damage", viking.getMsg());
+        assertEquals(viking.getName() + "has received" + 50 + "points of damage", viking.getMsg());
     }
 
     @Test
     public void should_return_NAME_has_died_in_act_of_combat_if_the_Viking_dies() {
         viking.receiveDamage(health);
-        assertEquals(viking.name + "has died in combat", viking.getMsg());
+        assertEquals(viking.getName() + "has died in combat", viking.getMsg());
     }
 
     @Test

@@ -9,8 +9,8 @@ import java.util.List;
 
 public class War {
 
-    List VikingArmy = new ArrayList<>();
-    List SaxonArmy = new ArrayList<>();
+    private List VikingArmy = new ArrayList<>();
+    private List SaxonArmy = new ArrayList<>();
     public List<Vikings> getVikingArmy() {
       return(VikingArmy);
     }
@@ -32,7 +32,7 @@ public class War {
         Saxon saxonSoldier = (Saxon) SaxonArmy.get(saxonRandom);
         Vikings vikingSoldier = (Vikings) VikingArmy.get(vikingRandom);
         saxonSoldier.receiveDamage(vikingSoldier.getStrength());
-        if (saxonSoldier.health <= 0){
+        if (saxonSoldier.getHealth() <= 0){
             SaxonArmy.remove(saxonRandom);
             return ("A Saxon has died in combat");
         }
@@ -45,7 +45,7 @@ public class War {
         Saxon saxonSoldier = (Saxon) SaxonArmy.get(saxonRandom);
         Vikings vikingSoldier = (Vikings) VikingArmy.get(vikingRandom);
         int result = vikingSoldier.receiveDamage(saxonSoldier.getStrength());
-        if (vikingSoldier.health <= 0){
+        if (vikingSoldier.getHealth() <= 0){
             VikingArmy.remove(vikingRandom);
             return (vikingSoldier.getName() + "has died in act of combat");
         }

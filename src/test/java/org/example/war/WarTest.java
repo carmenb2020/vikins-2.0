@@ -3,9 +3,7 @@ package org.example.war;
 import org.example.saxon.Saxon;
 import org.example.vikins.Vikings;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class WarTest {
@@ -15,7 +13,6 @@ class WarTest {
     int health = 300;
     Saxon saxon = new Saxon(health, strength);
     Vikings viking = new Vikings(name, health, strength);
-
     War war = new War();
 
     @Test

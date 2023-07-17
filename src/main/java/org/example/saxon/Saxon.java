@@ -3,10 +3,10 @@ package org.example.saxon;
 import org.example.soldier.Soldier;
 public class Saxon extends Soldier {
 
-    public int health;
-    int strength;
+    private int health;
+    private int strength;
 
-    String msg;
+    private String msg;
 
     public Saxon(int health, int strength) {
         super(health, strength);

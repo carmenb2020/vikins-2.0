@@ -4,10 +4,10 @@ import org.example.soldier.Soldier;
 
 public class Vikings extends Soldier {
 
-    String name;
-    public int health;
-    int strength;
-    String msg;
+    private String name;
+    private int health;
+    private int strength;
+    private String msg;
 
     public Vikings(String name, int health, int strength){
         super(health, strength);

@@ -17,13 +17,13 @@ class SoldierTest {
     @Test
     public void should_receive_the_health_property_as_its_1st_argument() {
         Soldier soldier = new Soldier(health, strength);
-        assertEquals(300, soldier.health);
+        assertEquals(300, soldier.getHealth());
     }
 
     @Test
     public void should_receive_the_health_property_as_its_2st_argument() {
         Soldier soldier = new Soldier(health, strength);
-        assertEquals(150, soldier.strength);
+        assertEquals(150, soldier.getStrength());
     }
 
     @Test
@@ -51,13 +51,13 @@ class SoldierTest {
     public void damage_should_receive_1_arguments() {
         Soldier soldier = new Soldier(health, strength);
         soldier.receiveDamage(20);
-        assertEquals(280, soldier.health);
+        assertEquals(280, soldier.getHealth());
     }
 
     @Test
     public void should_remove_the_received_damage_from_the_health_property() {
         var soldier = new Soldier(health, strength);
         soldier.receiveDamage(30);
-        assertEquals(270, soldier.health);
+        assertEquals(270, soldier.getHealth());
     }
 }
